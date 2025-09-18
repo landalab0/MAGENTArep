@@ -97,3 +97,21 @@ def postfilter_wgs_illumina_csv(csv_in: Path, csv_out: Path):
             w.writerow(r)
 
 ```
+### 1. Configuración y utilidades iniciales  
+
+Importa librerías, define rutas estándar para el proyecto, crea las carpetas necesarias, configura un entorno seguro para ejecutar comandos de EDirect/requests, y declara funciones auxiliares (lectura/escritura de TSV, conversión de tipos, conversión km→grados, ejecución robusta de comandos y filtrado de metadatos WGS+ILLUMINA).  
+
+**Entradas:**  
+Ninguna (solo variables de entorno como `MAGENTA_DIR` si están definidas).  
+
+**Salidas:**  
+- Estructura de carpetas lista (`rawdata`, `metadata`, `outputs`, `logs`, `aux`)  
+- Variables globales de rutas  
+- Entorno seguro de red para `requests` y `curl/EDirect`  
+- Funciones auxiliares disponibles (`save_tsv`, `load_tsv`, `ensure_float`, `km_to_deg`, `run_cmd`, `have_edirect`, `postfilter_wgs_illumina_csv`)  
+
+**Parámetros editables:**  
+- `MAGENTA_DIR`  
+- `EUTILS_TOOL`  
+- `EUTILS_EMAIL`  
+- Número de reintentos en `run_cmd` 
