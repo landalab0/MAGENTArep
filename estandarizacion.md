@@ -1,5 +1,6 @@
 ## 0) Estandarización de rutas y configuración
 
+```python
 from pathlib import Path
 import os
 import subprocess
@@ -94,3 +95,5 @@ def postfilter_wgs_illumina_csv(csv_in: Path, csv_out: Path):
         w.writeheader()
         for r in kept:
             w.writerow(r)
+
+```
